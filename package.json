@@ -1,21 +1,63 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "element-plus-nuxt-starter",
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.14.2",
+  "version": "0.1.0",
+  "description": "Element Plus with Nuxt 3 Minimal Starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/element-plus/element-plus-nuxt-starter"
+  },
+  "author": "Element Plus Team",
+  "license": "MIT",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "preinstall": "npx only-allow pnpm",
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "nuxi preview",
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxi generate",
+    "prepare": "nuxi prepare",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "element-plus": "^2.8.8",
     "mongodb": "^6.11.0",
-    "nuxt": "^3.14.1592",
-    "vue": "latest",
-    "vue-router": "latest"
+    "mongoose": "^8.8.3"
   },
   "devDependencies": {
-    "nuxt-mongodb": "^1.0.13"
+    "@element-plus/nuxt": "^1.1.0",
+    "@iconify-json/ri": "^1.2.3",
+    "@nuxt/eslint": "^0.7.1",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@pinia/nuxt": "^0.7.0",
+    "@unocss/nuxt": "^0.64.1",
+    "@vueuse/nuxt": "^11.3.0",
+    "autoprefixer": "^10.4.20",
+    "consola": "^3.2.3",
+    "eslint": "^9.15.0",
+    "nuxt": "^3.14.1592",
+    "postcss": "^8.4.49",
+    "sass": "^1.81.0",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vue-tsc": "^2.1.10"
+  },
+  "peerDependencies": {
+    "pinia": "^2.1.6"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack",
+        "vite",
+        "vue"
+      ]
+    }
   }
 }
