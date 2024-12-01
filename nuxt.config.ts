@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
   ],
 
   devtools: {
@@ -37,7 +38,15 @@ export default defineNuxtConfig({
     '@unocss/reset/tailwind.css',
     '~/assets/scss/index.scss'
   ],
-
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      include: undefined,
+      exclude: [],
+      cookieRedirect: false,
+    },
+  },
   // vueuse
   vueuse: {
     ssrHandlers: true,

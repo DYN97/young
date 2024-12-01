@@ -1,10 +1,21 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default',
+  layout: 'home',
 })
+const supabase = useSupabaseClient()
 const form = ref({})
-const onSubmit = () => {
-  console.log(form)
+const onSubmit = async () => {
+    let { data, error } = await supabase.auth.signInWithPassword({
+        email: form.value.name + '@1.com',
+        password: form.value.password,
+    })
+  if (error) {
+    console.log(error)
+    return false
+  } 
+  if (data.user) {
+    navigateTo('/')
+  }
 }
 </script>
 
